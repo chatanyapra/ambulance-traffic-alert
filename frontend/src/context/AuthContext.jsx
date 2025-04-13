@@ -41,9 +41,9 @@ export const AuthProvider = ({ children }) => {
       const decoded = jwtDecode(response.data.token);
       setUser(decoded);
       setIsAuthenticated(true);
-      
+
       // Redirect based on role
-      switch(decoded.role) {
+      switch (decoded.role) {
         case 'ambulance':
           navigate('/dashboard/ambulance');
           break;
