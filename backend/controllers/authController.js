@@ -8,6 +8,8 @@ import bcrypt from 'bcryptjs';
 // @access  Public
 export const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password, role, phone } = req.body;
+  console.log(req.body);
+  
 
   if (!name || !email || !password || !role || !phone) {
     res.status(400);

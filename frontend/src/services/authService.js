@@ -6,7 +6,7 @@ const register = async (userData) => {
 };
 
 const login = async (credentials) => {
-  const response = await axios.post(`/auth/login`, credentials);
+  const response = await axios.post(`/api/auth/login`, credentials);
   if (response.data.token) {
     localStorage.setItem('token', response.data.token);
   }
@@ -15,7 +15,7 @@ const login = async (credentials) => {
 
 const getProfile = async () => {
   const token = localStorage.getItem('token');
-  const response = await axios.get(`/auth/me`, {
+  const response = await axios.get(`/api/auth/me`, {
     headers: {
       Authorization: `Bearer ${token}`
     }
@@ -25,7 +25,7 @@ const getProfile = async () => {
 
 const getAllUsers = async () => {
   const token = localStorage.getItem('token');
-  const response = await axios.get(`/auth/users`, {
+  const response = await axios.get(`/api/auth/users`, {
     headers: {
       Authorization: `Bearer ${token}`
     }
@@ -35,7 +35,7 @@ const getAllUsers = async () => {
 
 const deleteUser = async (userId) => {
   const token = localStorage.getItem('token');
-  const response = await axios.delete(`/auth/users/${userId}`, {
+  const response = await axios.delete(`/api/auth/users/${userId}`, {
     headers: {
       Authorization: `Bearer ${token}`
     }

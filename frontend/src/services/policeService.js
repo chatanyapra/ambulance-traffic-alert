@@ -12,7 +12,7 @@ const getAlerts = async () => {
 
 const resolveAlert = async (alertId) => {
   const token = localStorage.getItem('token');
-  const response = await axios.put(`/alerts/${alertId}/resolve`, {}, {
+  const response = await axios.put(`/api/alerts/${alertId}/resolve`, {}, {
     headers: {
       Authorization: `Bearer ${token}`
     }

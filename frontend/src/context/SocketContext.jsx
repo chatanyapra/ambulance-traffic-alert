@@ -7,7 +7,7 @@ export const SocketProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    const newSocket = io(process.env.REACT_APP_API_URL);
+    const newSocket = io("http://localhost:5000");
     setSocket(newSocket);
 
     return () => {

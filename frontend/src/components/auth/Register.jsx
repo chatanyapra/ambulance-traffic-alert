@@ -24,7 +24,13 @@ const Register = () => {
 
     setLoading(true);
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/register`, {
+      console.log(name,
+        email,
+        password,
+        role,
+        phone);
+      
+      const response = await fetch(`/api/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -39,6 +45,8 @@ const Register = () => {
       });
 
       const data = await response.json();
+      console.log(data);
+      
 
       if (!response.ok) {
         throw new Error(data.message || 'Registration failed');
