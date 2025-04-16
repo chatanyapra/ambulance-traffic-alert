@@ -17,6 +17,7 @@ export const AuthProvider = ({ children }) => {
 
   const checkAuth = async () => {
     const token = localStorage.getItem('token');
+    console.log('Token:', token); 
     if (!token) {
       setLoading(false);
       return;
@@ -25,6 +26,9 @@ export const AuthProvider = ({ children }) => {
     try {
       const decoded = jwtDecode(token);
       const response = await api.getProfile();
+      console.log('Decoded Token:', decoded);
+      console.log('User Profile:', response.data);
+      
       setUser(response.data);
       setIsAuthenticated(true);
     } catch (error) {
